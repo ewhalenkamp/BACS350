@@ -25,7 +25,7 @@ SECRET_KEY = 'n@#4irt@^$sqlw&lr4ldnlkiytd5e$p@_17@yc&sw!=7n1tgfn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['bacs350-dev.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['localhost', 'bacs350-dev.us-west-2.elasticbeanstalk.com']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages',
+    'hero',
 ]
 
 MIDDLEWARE = [
@@ -119,3 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
