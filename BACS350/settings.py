@@ -25,7 +25,7 @@ SECRET_KEY = 'n@#4irt@^$sqlw&lr4ldnlkiytd5e$p@_17@yc&sw!=7n1tgfn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://bacs350-dev.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['bacs350-dev.us-west-2.elasticbeanstalk.com']
 
 
 # Application definition
