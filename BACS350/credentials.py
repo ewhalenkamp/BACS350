@@ -1,1 +1,0 @@
-SECRET_KEY_ = 'n@#4irt@^$sqlw&lr4ldnlkiytd5e$p@_17@yc&sw!=7n1tgfn'
