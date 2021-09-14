@@ -3,11 +3,18 @@ from django.shortcuts import render
 from .models import Hero
 
 def HeroMain(request):
-    return render(request, 'hero/hero_home.html')
+    heroes = []
+
+    for hero in Hero.objects.all():
+        heroes.append(hero)
+
+    context = {
+        'heroes': heroes,
+    }
+
+    return render(request, 'hero/hero_home.html', context)
 
 def ShowHero(request, name):
-    hero = Hero(name="Black Widow", url_name="black_widow")
-    hero.save()
     try:
         hero = Hero.objects.filter(url_name=name)[0]
     except IndexError:
@@ -17,4 +24,4 @@ def ShowHero(request, name):
         'hero': hero, 
     }
 
-    return render(request, 'templates/hero_view.html')
+    return render(request, 'hero/hero_view.html', context)

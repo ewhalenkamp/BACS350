@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.http.response import HttpResponse
 from django.urls import path, include
+from django.shortcuts import redirect
 
 def hello_world(request):
-    return HttpResponse("Hello world")
+    return redirect('/hero/')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
