@@ -22,7 +22,7 @@
         <div class="col-md-10 col-lg-8 col-xl-7">
             {% for hero in heroes %}
                 <!-- Post preview-->
-                <div class="post-preview">
+                <div class="post-preview" style="text-align: center;">
                     <a href="{% url 'hero_view' hero.url_name %}">
                         <h2 class="post-title">{{ hero.name }}</h2>
                         <h3 class="post-subtitle">{{ hero.blurb }}</h3>
