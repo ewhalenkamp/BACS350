@@ -1,0 +1,10 @@
+{% extends 'hero/index.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="content" style="text-align: center;">
+    <img src="{% static 'assets/img/' %}{{ hero.url_name }}.png" alt="{{ hero.name }}" style="width: 25%; height: 50%;"></img>
+    <h1 style="margin: 2em;">{{ hero.name }}</h1>
+</div>
+{% endblock %}
