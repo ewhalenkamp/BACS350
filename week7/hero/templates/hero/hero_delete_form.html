@@ -1,0 +1,10 @@
+{% extends 'hero/index.html' %}
+
+{% block content %}
+<div style="text-align: center; margin: 25px;"
+    <form method="post">{% csrf_token %}
+        <p>Are you sure you want to delete "{{ object }}"?</p>
+        <input type="submit" value="Confirm">
+    </form>
+</div>
+{% endblock %}

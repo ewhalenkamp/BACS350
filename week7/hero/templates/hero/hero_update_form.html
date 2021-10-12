@@ -1,0 +1,10 @@
+{% extends 'hero/index.html' %}
+
+{% block content %}
+<div style="text-align: center; margin: 25px;"
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update">
+    </form>
+</div>
+{% endblock %}
