@@ -4,6 +4,7 @@ from .models import Hero
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
 
 def HeroMain(request):
     heroes = []
@@ -37,18 +38,23 @@ class HeroCreateView(CreateView):
     fields = ['name', 'identity']
     template_name_suffix = '_create_form'
 
-    def post(self, request, *args, **kwargs):
+    def form_valid(self, form):
+        self.object = form.save()
         self.object.url_name = self.object.name.lower().replace(" ", "_")
-        return super().post(request, *args, **kwargs)
+        self.object.save()
+        return HttpResponseRedirect(self.object.get_absolute_url())
 
 class HeroUpdateView(UpdateView):
     model = Hero
     fields = ['name', 'identity']
     template_name_suffix = '_update_form'
 
-    def post(self, request, *args, **kwargs):
+    def form_valid(self, form):
+        self.object = form.save()
         self.object.url_name = self.object.name.lower().replace(" ", "_")
-        return super().post(request, *args, **kwargs)
+        self.object.save()
+        return HttpResponseRedirect(self.object.get_absolute_url())
+
 
 class HeroDeleteView(DeleteView):
     model = Hero
