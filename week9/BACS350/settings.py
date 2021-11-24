@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = SECRET_KEY_
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'BACS350-dev.us-east-2.elasticbeanstalk.com']
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hero.apps.HeroConfig',
     'users.apps.UsersConfig',
+    'article.apps.ArticleConfig',
 ]
 
 MIDDLEWARE = [
