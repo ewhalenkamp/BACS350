@@ -1,0 +1,12 @@
+{% extends 'hero/index.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="content" style="text-align: center;">
+    <h2 style="margin-top: 2em;">{{ article.title }}</h2>
+    <h5>By: {{ article.author }}</h5>
+    <br>
+    <p>{{ article.content }}</p>
+</div>
+{% endblock %}

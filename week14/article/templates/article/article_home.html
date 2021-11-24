@@ -1,0 +1,100 @@
+{% extends 'hero/index.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('{% static 'assets/img/avengers-bg.jpg' %}')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Articles</h1>
+                    <span class="subheading">Superhero News</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            {% for article in articles %}
+                <!-- Post preview-->
+                <div class="post-preview">
+                    <table style="width:100%;">
+                        <tr>
+                            <td style="width:75%;">
+                                <a href="{% url 'article_view' article.pk %}">
+                                    <h2 class="post-title">{{ article.title }}</h2>
+                                    <h4 class="post-subtitle">{{ article.author }}</h4>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'article_update' article.pk %}">
+                                    <img src="https://img.icons8.com/ios-filled/50/000000/approve-and-update.png" style="height: 50px; width: 50px;" alt="update"/>
+                                </a>
+                                <a href="{% url 'article_delete' article.pk %}">
+                                    <img src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/000000/external-delete-miscellaneous-kiranshastry-lineal-kiranshastry.png" style="height: 55px; width: 55px;" alt="delete"/>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- <p class="post-meta">
+                        Posted by
+                        <a href="#!">Start Bootstrap</a>
+                        on September 24, 2021
+                    </p> -->
+                </div>
+                <!-- Divider-->
+                <hr class="my-4" />
+            {% endfor %}
+            <div style="text-align: center; width: 100%; margin: 20px;">
+                <a href="{% url 'article_create' %}"> <img src="https://img.icons8.com/ios/50/000000/add--v1.png"/></a>
+            </div>
+            <!-- Post preview-->
+            <!-- <div class="post-preview">
+                <a href="post.html"><h2 class="post-title">I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</h2></a>
+                <p class="post-meta">
+                    Posted by
+                    <a href="#!">Start Bootstrap</a>
+                    on September 18, 2021
+                </p>
+            </div>
+            Divider
+            <hr class="my-4" />
+            Post preview
+            <div class="post-preview">
+                <a href="post.html">
+                    <h2 class="post-title">Science has not yet mastered prophecy</h2>
+                    <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3>
+                </a>
+                <p class="post-meta">
+                    Posted by
+                    <a href="#!">Start Bootstrap</a>
+                    on August 24, 2021
+                </p>
+            </div>
+             Divider
+            <hr class="my-4" />
+             Post preview
+            <div class="post-preview">
+                <a href="post.html">
+                    <h2 class="post-title">Failure is not an option</h2>
+                    <h3 class="post-subtitle">Many say exploration is part of our destiny, but it’s actually our duty to future generations.</h3>
+                </a>
+                <p class="post-meta">
+                    Posted by
+                    <a href="#!">Start Bootstrap</a>
+                    on July 8, 2021
+                </p>
+            </div>
+             Divider
+            <hr class="my-4" />
+             Pager
+            <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div> -->
+        </div>
+    </div>
+</div>
+{% endblock %}

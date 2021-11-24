@@ -1,0 +1,15 @@
+{% extends 'hero/index.html' %}
+
+{% block content %}
+<div style="text-align: center; margin: 25px;">
+    {% if request.user.is_authenticated %}
+    <form method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to delete "{{ object }}"?</p>
+        <input type="submit" value="Confirm">
+    </form>
+    {% else %}
+    <h2>You must be logged in to delete heroes.</h2>
+    {% endif %}
+</div>
+{% endblock %}

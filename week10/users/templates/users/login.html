@@ -1,0 +1,30 @@
+{% extends 'hero/index.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="content" style="text-align: center;">
+    {% if request.user.is_authenticated %}
+    <h2>{{ request.user.username }} is already logged in. Please logout and try again.</h2>
+    {% else %}
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <table style="margin: auto;">
+        <tr>
+            <td>{{ form.username.label_tag }}</td>
+            <td>{{ form.username }}</td>
+        </tr>
+        <tr style="margin: 10px;">
+            <td>{{ form.password.label_tag }}</td>
+            <td>{{ form.password }}</td>
+        </tr>
+        </table>
+        <br>
+        <input type="submit" value="Login">
+        <input type="hidden" name="next" value="{{ next }}">
+        
+        </form>
+        <br>
+        {% endif %}
+</div>
+{% endblock %}

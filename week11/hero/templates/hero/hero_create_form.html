@@ -1,0 +1,14 @@
+{% extends 'hero/index.html' %}
+
+{% block content %}
+<div style="text-align: center; margin: 25px;">
+    {% if request.user.is_authenticated %}
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Create">
+    </form>
+    {% else %}
+    <h2>You must be logged in to create heroes.</h2>
+    {% endif %}
+</div>
+{% endblock %}
